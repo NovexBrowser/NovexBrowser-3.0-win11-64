@@ -1,0 +1,37 @@
+{
+  "name": "novex-browser",
+  "version": "3.1.0",
+  "description": "Novex Browser - Navegador gamer con funciones Pro",
+  "main": "main.js",
+  "author": "Novex",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.novex.browser",
+    "productName": "Novex Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "icon": "assets/novex-logo.ico",
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Novex Browser"
+    }
+  }
+}

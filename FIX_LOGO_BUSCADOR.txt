@@ -1,0 +1,1 @@
+Versión corregida: logo y barra de búsqueda visibles. Carpeta limpia NovexBrowser.

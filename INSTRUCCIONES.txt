@@ -1,0 +1,23 @@
+NOVEX BROWSER
+
+PARA PROBAR:
+1. Descomprime este ZIP.
+2. Abre la carpeta "NovexBrowser" en Visual Studio Code.
+3. Abre Terminal > Nueva terminal.
+4. Escribe:
+   npm install
+5. Luego:
+   npm start
+
+PARA CREAR EL INSTALADOR:
+   npm run dist
+
+NUEVO EN ESTA VERSIÓN:
+- Sistema de cookies persistentes usando sesión persistente de Electron.
+- Panel de cookies para ver conteo, borrar cookies y borrar datos de sitios.
+- Restauración de sesión: al cerrar y abrir, vuelve a cargar las pestañas que estabas viendo.
+- Arreglo fuerte del desbordamiento de pestañas y de pantalla.
+- WhatsApp, Spotify y Roblox agregados a la barra lateral.
+- Iconos tipo favicon para apps y accesos rápidos.
+- Barra inferior muestra CPU, RAM, RAM usada por Novex y hora UTC-4.
+- Se mantiene favoritos, historial, importador desde navegadores, seguridad y ahorro de RAM.

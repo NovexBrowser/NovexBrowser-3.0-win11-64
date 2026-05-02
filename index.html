@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novex Browser</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <img src="assets/novex-logo.png" class="brand-logo" alt="Novex Logo" />
+
+      <button class="side-btn active" id="homeSideBtn" title="Inicio">⌂</button>
+      <button class="side-btn" id="favoritesSideBtn" title="Favoritos">★</button>
+      <button class="side-btn" id="historySideBtn" title="Historial">⏱</button>
+      <button class="side-btn" id="downloadsSideBtn" title="Descargas">↓</button>
+
+      <button class="side-btn app-side-btn" id="whatsappSideBtn" title="WhatsApp">
+        <img src="https://www.google.com/s2/favicons?domain=whatsapp.com&sz=64" alt="WhatsApp" />
+      </button>
+
+      <button class="side-btn app-side-btn" id="spotifySideBtn" title="Spotify">
+        <img src="https://www.google.com/s2/favicons?domain=spotify.com&sz=64" alt="Spotify" />
+      </button>
+
+      <button class="side-btn app-side-btn" id="robloxSideBtn" title="Roblox">
+        <img src="https://www.google.com/s2/favicons?domain=roblox.com&sz=64" alt="Roblox" />
+      </button>
+
+      <button class="side-btn" id="gamesSideBtn" title="Juegos">🎮</button>
+      <button class="side-btn" id="securitySideBtn" title="Seguridad">🛡</button>
+      
+      <button class="side-btn" id="quickSearchSideBtn" title="Búsqueda rápida">🔎</button>
+      <button class="side-btn" id="tabManagerSideBtn" title="Gestor de pestañas">▦</button>
+      <button class="side-btn" id="notesSideBtn" title="Notas y tareas">📝</button>
+      <button class="side-btn" id="proFeaturesSideBtn" title="Funciones Pro">✨</button>
+
+      <button class="side-btn" id="settingsSideBtn" title="Configuración">⚙</button>
+
+      <div class="sidebar-bottom">
+        <button class="side-btn" id="profileSideBtn" title="Perfil">👤</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+
+      <div class="titlebar">
+        <div class="brand-text">
+          <img src="assets/novex-logo.png" class="mini-logo" alt="Novex Logo" />
+          <span class="brand-gradient">NOVEX</span>
+          <span class="brand-light"> BROWSER</span>
+        </div>
+
+        <div class="window-controls">
+          <button id="minimizeBtn" class="window-btn">—</button>
+          <button id="maximizeBtn" class="window-btn">□</button>
+          <button id="closeBtn" class="window-btn close">✕</button>
+        </div>
+      </div>
+
+      <div class="tabbar" id="tabbar">
+        <button class="new-tab-btn" id="newTabBtn">+</button>
+      </div>
+
+      <div class="toolbar">
+        <button id="back" class="tool-btn">←</button>
+        <button id="forward" class="tool-btn">→</button>
+        <button id="reload" class="tool-btn">⟳</button>
+        <button id="home" class="tool-btn">⌂</button>
+
+        <div class="address-wrapper">
+          <span class="lock-icon">🔒</span>
+          <input id="urlInput" type="text" placeholder="Buscar o escribir una dirección" />
+          <button id="favoriteBtn" class="inline-btn">☆</button>
+        </div>
+
+        <button id="go" class="go-btn">Ir</button>
+        <button id="menuBtn" class="tool-btn">⋮</button>
+      </div>
+
+      <section class="content-area" id="contentArea">
+
+        <div id="startPage" class="start-page">
+          <div class="hero-glow"></div>
+
+          <div class="start-content">
+            <img src="assets/novex-logo.png" class="home-logo" alt="Novex Logo" />
+            <h1>Novex Browser</h1>
+            <p>Cookies, restauración de sesión y mejor control de rendimiento.</p>
+
+            <div class="big-search">
+              <span>🔎</span>
+              <input id="homeSearchInput" type="text" placeholder="Buscar en la web" />
+            </div>
+
+            <div class="quick-grid">
+              <button class="quick-card" data-url="https://www.youtube.com">
+                <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" class="quick-logo" alt="YouTube" />
+                <div class="quick-title">YouTube</div>
+                <div class="quick-sub">Videos</div>
+              </button>
+
+              <button class="quick-card" data-url="https://mail.google.com">
+                <img src="https://www.google.com/s2/favicons?domain=gmail.com&sz=64" class="quick-logo" alt="Gmail" />
+                <div class="quick-title">Gmail</div>
+                <div class="quick-sub">Correo</div>
+              </button>
+
+              <button class="quick-card" data-url="https://web.whatsapp.com">
+                <img src="https://www.google.com/s2/favicons?domain=whatsapp.com&sz=64" class="quick-logo" alt="WhatsApp" />
+                <div class="quick-title">WhatsApp</div>
+                <div class="quick-sub">Mensajes</div>
+              </button>
+
+              <button class="quick-card" data-url="https://www.roblox.com">
+                <img src="https://www.google.com/s2/favicons?domain=roblox.com&sz=64" class="quick-logo" alt="Roblox" />
+                <div class="quick-title">Roblox</div>
+                <div class="quick-sub">Juegos</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="favoritesPanel" class="side-panel hidden">
+          <h2>Favoritos</h2>
+          <p>Tus páginas guardadas aparecerán aquí.</p>
+          <div id="favoritesList" class="panel-list"></div>
+        </div>
+
+        <div id="historyPanel" class="side-panel hidden">
+          <h2>Historial</h2>
+          <p>Páginas visitadas recientemente.</p>
+          <div id="historyList" class="panel-list"></div>
+        </div>
+
+        <div id="downloadsPanel" class="side-panel hidden">
+          <h2>Descargas</h2>
+          <p>Las descargas se guardan usando Electron.</p>
+          <div class="empty-box">↓ Las descargas aparecerán en la carpeta de descargas de Windows.</div>
+        </div>
+
+        <div id="gamesPanel" class="side-panel hidden">
+          <h2>Centro Gamer</h2>
+          <p>Accesos rápidos para juegos y plataformas gamer.</p>
+          <div class="panel-list">
+            <div class="panel-item launch-url" data-url="https://store.steampowered.com">
+              <div class="panel-item-title">Steam</div>
+              <div class="panel-item-url">https://store.steampowered.com</div>
+            </div>
+            <div class="panel-item launch-url" data-url="https://www.epicgames.com/store">
+              <div class="panel-item-title">Epic Games Store</div>
+              <div class="panel-item-url">https://www.epicgames.com/store</div>
+            </div>
+            <div class="panel-item launch-url" data-url="https://www.roblox.com">
+              <div class="panel-item-title">Roblox</div>
+              <div class="panel-item-url">https://www.roblox.com</div>
+            </div>
+            <div class="panel-item launch-url" data-url="https://discord.com/app">
+              <div class="panel-item-title">Discord Web</div>
+              <div class="panel-item-url">https://discord.com/app</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="securityPanel" class="side-panel hidden">
+          <h2>Seguridad</h2>
+          <p>Consejos y herramientas visuales de seguridad para navegar mejor.</p>
+
+          <div class="security-grid">
+            <div class="security-card">
+              <div class="security-icon">🛡</div>
+              <div>
+                <h3>Navegación segura</h3>
+                <p>Evita entrar datos personales en páginas desconocidas o sin candado.</p>
+              </div>
+            </div>
+
+            <div class="security-card">
+              <div class="security-icon">🔒</div>
+              <div>
+                <h3>HTTPS recomendado</h3>
+                <p>Prefiere páginas que comiencen con https:// para mayor protección.</p>
+              </div>
+            </div>
+
+            <div class="security-card">
+              <div class="security-icon">🍪</div>
+              <div>
+                <h3>Sistema de cookies</h3>
+                <p>Novex conserva cookies para que puedas mantener sesiones iniciadas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="settingsPanel" class="side-panel hidden">
+          <h2>Configuración</h2>
+          <p>Ajustes básicos de Novex Browser.</p>
+
+          <div class="settings-list">
+            <button class="settings-action" id="clearHistoryBtn">Borrar historial</button>
+            <button class="settings-action" id="clearFavoritesBtn">Borrar favoritos</button>
+            <button class="settings-action" id="openImportBtnSettings">Importar datos de navegador anterior</button>
+            <button class="settings-action" id="openCookiesBtnSettings">Sistema de cookies</button>
+            <button class="settings-action" id="toggleStatusbarBtn">Ocultar barra inferior</button>
+            <button class="settings-action" id="toggleRamSaverBtn">Activar ahorro de RAM</button>
+            <button class="settings-action" id="toggleBatterySaverBtn">Activar ahorro de batería</button>
+            <button class="settings-action" id="openProFeaturesBtn">Ver funciones Pro</button>
+          </div>
+
+          <div class="empty-box" id="settingsMessage">
+            Los cambios se guardan localmente en este navegador.
+          </div>
+        </div>
+
+        <div id="profilePanel" class="side-panel hidden">
+          <h2>Perfil Novex</h2>
+          <p>Área de perfil local del navegador.</p>
+          <div class="profile-card">
+            <img src="assets/novex-logo.png" alt="Novex Logo" />
+            <div>
+              <h3>Usuario Novex</h3>
+              <p>Perfil local sin sincronización en la nube.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="importPanel" class="side-panel hidden">
+          <h2>Importar datos</h2>
+          <p>Selecciona tu navegador anterior y Novex intentará traer tus favoritos automáticamente.</p>
+
+          <div class="import-box">
+            <h3>Seleccionar navegador</h3>
+            <p>Novex buscará los favoritos guardados en ese navegador instalado en esta computadora.</p>
+
+            <select id="browserImportSelect" class="novex-input">
+              <option value="chrome">Google Chrome</option>
+              <option value="edge">Microsoft Edge</option>
+              <option value="brave">Brave</option>
+              <option value="opera">Opera</option>
+              <option value="operagx">Opera GX</option>
+            </select>
+
+            <div class="actions-row">
+              <button class="settings-action" id="importBrowserBtn">Importar desde navegador seleccionado</button>
+            </div>
+
+            <div id="importResult" class="empty-box">
+              Selecciona un navegador y presiona importar.
+            </div>
+          </div>
+        </div>
+
+        <div id="cookiesPanel" class="side-panel hidden">
+          <h2>Sistema de cookies</h2>
+          <p>Administra las cookies y datos guardados por los sitios.</p>
+
+          <div class="cookies-card">
+            <h3>Cookies persistentes</h3>
+            <p>Novex Browser guarda cookies para que tus sesiones sigan al cerrar y abrir el navegador.</p>
+
+            <div class="cookie-stats">
+              <div>
+                <span>Cookies</span>
+                <strong id="cookieTotal">0</strong>
+              </div>
+              <div>
+                <span>Dominios</span>
+                <strong id="cookieDomains">0</strong>
+              </div>
+            </div>
+
+            <div class="actions-row">
+              <button class="settings-action" id="refreshCookiesBtn">Actualizar conteo</button>
+              <button class="settings-action danger-soft" id="clearCookiesBtn">Borrar cookies</button>
+              <button class="settings-action danger-soft" id="clearSiteDataBtn">Borrar datos de sitios</button>
+            </div>
+
+            <div id="cookiesMessage" class="empty-box">
+              Las cookies se guardan en la sesión persistente de Novex.
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="quickSearchPanel" class="side-panel hidden">
+          <h2>Búsqueda rápida</h2>
+          <p>Busca desde la barra lateral en varios servicios.</p>
+          <div class="tool-card">
+            <input id="quickSearchInput" class="novex-input" type="text" placeholder="Escribe lo que quieres buscar..." />
+            <div class="actions-row">
+              <button class="settings-action quick-search-engine" data-engine="google">Google</button>
+              <button class="settings-action quick-search-engine" data-engine="youtube">YouTube</button>
+              <button class="settings-action quick-search-engine" data-engine="wikipedia">Wikipedia</button>
+              <button class="settings-action quick-search-engine" data-engine="roblox">Roblox</button>
+              <button class="settings-action quick-search-engine" data-engine="spotify">Spotify</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabManagerPanel" class="side-panel hidden">
+          <h2>Administrador de pestañas</h2>
+          <p>Organiza, cierra, agrupa y revisa tus pestañas abiertas.</p>
+          <div class="actions-row">
+            <button class="settings-action" id="refreshTabManagerBtn">Actualizar lista</button>
+            <button class="settings-action" id="groupTabsBtn">Agrupar por tema/dominio</button>
+            <button class="settings-action danger-soft" id="closeInactiveTabsBtn">Cerrar pestañas inactivas</button>
+          </div>
+          <div id="tabManagerList" class="panel-list"></div>
+        </div>
+
+        <div id="notesPanel" class="side-panel hidden">
+          <h2>Notas y tareas</h2>
+          <p>Notas rápidas vinculadas a tu navegador.</p>
+          <div class="tool-card">
+            <textarea id="quickNotesArea" class="novex-textarea" placeholder="Escribe tus notas aquí..."></textarea>
+            <div class="actions-row">
+              <button class="settings-action" id="saveNotesBtn">Guardar notas</button>
+              <button class="settings-action danger-soft" id="clearNotesBtn">Borrar notas</button>
+            </div>
+          </div>
+          <div class="tool-card">
+            <h3>Lista de tareas</h3>
+            <div class="todo-row">
+              <input id="todoInput" class="novex-input" type="text" placeholder="Nueva tarea..." />
+              <button class="settings-action" id="addTodoBtn">Agregar</button>
+            </div>
+            <div id="todoList" class="todo-list"></div>
+          </div>
+        </div>
+
+        <div id="proFeaturesPanel" class="side-panel hidden">
+          <h2>Funciones Pro</h2>
+          <p>Centro de control para las ideas nuevas de Novex Browser.</p>
+          <div class="feature-grid" id="featureGrid"></div>
+        </div>
+
+        <div id="summaryPanel" class="side-panel hidden">
+          <h2>Resumen rápido</h2>
+          <p>Resumen local de la página actual. Para resumen con IA real se necesitaría conectar un servicio de IA.</p>
+          <div class="tool-card">
+            <div id="summaryResult" class="summary-box">Presiona “Resumen rápido” desde el menú de 3 puntos.</div>
+          </div>
+        </div>
+
+        <div id="screenshotPanel" class="side-panel hidden">
+          <h2>Captura de pantalla</h2>
+          <p>Vista previa de la captura del sitio actual.</p>
+          <div class="tool-card">
+            <div class="actions-row">
+              <button class="settings-action" id="captureAgainBtn">Tomar captura otra vez</button>
+            </div>
+            <img id="screenshotPreview" class="screenshot-preview" alt="Captura" />
+          </div>
+        </div>
+
+        <div id="moreMenu" class="more-menu hidden">
+          <button id="menuNewTab">Nueva pestaña</button>
+          <button id="menuImport">Importar datos de navegador anterior</button>
+          <button id="menuCookies">Sistema de cookies</button>
+          <button id="menuReadMode">Modo lectura limpio</button>
+          <button id="menuTranslatePage">Traducir página</button>
+          <button id="menuLocalSummary">Resumen rápido</button>
+          <button id="menuTemporaryTab">Pestaña temporal</button>
+          <button id="menuIncognitoTab">Nueva pestaña incógnita</button>
+          <button id="menuTabManager">Administrador de pestañas</button>
+          <button id="menuFocusMode">Modo concentrado</button>
+          <button id="menuMuteTab">Silenciar pestaña</button>
+          <button id="menuPipVideo">Video flotante</button>
+          <button id="menuScreenshot">Captura de pantalla</button>
+          <button id="menuProFeatures">Funciones Pro</button>
+          <button id="menuToggleStatusbar">Ocultar barra inferior</button>
+          <button id="menuToggleRamSaver">Activar ahorro de RAM</button>
+          <button id="menuFavorites">Ver favoritos</button>
+          <button id="menuHistory">Ver historial</button>
+          <button id="menuSettings">Configuración</button>
+        </div>
+
+        <div id="webviewsContainer"></div>
+
+      </section>
+
+      <div class="statusbar" id="statusbar">
+        <div id="cpuStatus">CPU: --%</div>
+        <div id="ramStatus">RAM: --</div>
+        <div id="appRamStatus">Novex: --</div>
+        <div id="timeStatus">UTC-4: --:--</div>
+        <div id="batterySaverStatus">Batería: OFF</div>
+        <div class="status-actions">
+          <span id="ramSaverStatus">RAM normal</span>
+          <button id="hideStatusbarQuick" class="status-hide-btn" title="Ocultar barra inferior">×</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+Se agregó Centro de Funciones Pro con varias ideas implementadas o preparadas.
+
+Implementado/base:
+- Bloqueador anuncios/rastreadores.
+- Ahorro batería.
+- Modo lectura.
+- Traductor.
+- Resumen local.
+- Búsqueda rápida lateral.
+- Captura de pantalla.
+- Administrador/agrupar pestañas.
+- Pestañas temporales.
+- Aviso phishing básico.
+- Popups bloqueados.
+- Notas/tareas.
+- Modo concentrado.
+- Silenciar pestaña.
+- Picture-in-picture.
+- Pestaña incógnita temporal.
+
+Algunas funciones avanzadas quedan como futuras porque requieren servidor, IA, sincronización o seguridad especializada.
